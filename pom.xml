@@ -1,0 +1,34 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.xml.compare</groupId>
+  <artifactId>scalaXMLcompare</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>scalaXMLcompare</name>
+  <url>http://maven.apache.org</url>
+  <repositories>
+    <repository>
+      <id>milestone.repo.springsource.org</id>
+      <name>repo.springsource.org-milestone</name>
+      <url>https://repo.springsource.org/libs-milestone</url>
+    </repository>
+  </repositories>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.scala</groupId>
+      <artifactId>spring-scala_2.10</artifactId>
+      <version>1.0.0.RC1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.scala-tools</groupId>
+      <artifactId>maven-scala-plugin</artifactId>
+      <version>2.14.1</version>
+    </dependency>
+  </dependencies>
+</project>
