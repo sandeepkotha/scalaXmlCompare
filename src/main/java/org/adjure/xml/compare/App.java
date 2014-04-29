@@ -1,4 +1,4 @@
-package org.xml.compare;
+package org.adjure.xml.compare;
 
 /**
  * Hello world!
