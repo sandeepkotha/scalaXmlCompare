@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://schema.ruleset.adjure.org/Commons/0/1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:commons="http://schema.ruleset.adjure.org/Commons/0/1" elementFormDefault="qualified">
+	<xs:simpleType name="FileType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="xml"/>
+			<xs:enumeration value="json"/>			
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="Action">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="COMPARE_WITH_EACH_OTHER"/>
+			<xs:enumeration value="ANALYZE"/>			
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="vs">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="DATA"/>
+			<xs:enumeration value="NODE"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

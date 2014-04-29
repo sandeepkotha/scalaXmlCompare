@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://schema.ruleset.adjure.org/DecisionMaker/0/1" 
+xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+xmlns:rs="http://schema.ruleset.adjure.org/DecisionMaker/0/1" 
+xmlns:commons="http://schema.ruleset.adjure.org/Commons/0/1"
+xmlns:system="http://schema.ruleset.adjure.org/System/0/1" 
+elementFormDefault="qualified">
+	<xs:import namespace="http://schema.ruleset.adjure.org/Commons/0/1" schemaLocation="Commons.0.1.xsd"/>
+	<xs:import namespace="http://schema.ruleset.adjure.org/System/0/1" schemaLocation="System_0_1.xsd"/>
+	
+	<xs:complexType name="RuleSet">
+		<xs:sequence>
+			<xs:element name="inputType" type="commons:FileType" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>This specify the input your file type, currently only XML and JSON are supported</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="action" type="commons:Action" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>This specify what you are about to do, either you want to
+					compare either 2 XML or JSON documents or you want to analyze a single document</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:choice>
+				<xs:element name="basic" type="xs:string" minOccurs="1" maxOccurs="1" >
+					<xs:annotation>
+						<xs:documentation>This specify that you want to do specified action without applying any rules</xs:documentation>
+					</xs:annotation>
+				 </xs:element>
+				<xs:element name="rule" type="rs:Rule" minOccurs="1" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>This specify that you want to do specified action by applying rules you defined</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="Rule">
+		<xs:sequence>
+			<xs:element name="ruleName" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Meaningful name for this rule</xs:documentation>
+				</xs:annotation> 
+			</xs:element>
+			
+			<xs:element name="affirm" type="rs:Affirm" minOccurs="0" maxOccurs="unbounded">
+			
+			</xs:element>
+			
+			
+			
+		</xs:sequence>
+				
+	</xs:complexType> 
+	
+	<xs:complexType name="Affirm">
+		<xs:sequence>
+			<xs:element name="node" type="system:Adjure" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>This specify the xpath for XML or jpath for JSON to validate agnist</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="subpath" type="system:Adjure" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>This specify the xpath for XML or jpath for JSON to validate agnist</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+</xs:schema>
