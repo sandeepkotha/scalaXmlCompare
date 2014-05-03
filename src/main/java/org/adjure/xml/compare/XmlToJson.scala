@@ -14,7 +14,7 @@ import scala.util.parsing.json.JSON
  * @author kothas
  *
  */
-class XmlToJson
+object XmlToJson
 {
 
 	def convertXmlToJson(xmlString : String) : org.json.JSONObject = {
@@ -27,16 +27,3 @@ class XmlToJson
   
 }
 
-object XmlToJson {
-
-  def main(args: Array[String]): Unit = { println("hello")
-	
-	val xmltoJson = new XmlToJson();
-	val input : org.json.JSONObject = xmltoJson.convertXmlToJson(AdjureUtil.quitelyGetFileContentsAsString(inputFile, "utf-8"));
-	val refereance : org.json.JSONObject = xmltoJson.convertXmlToJson(AdjureUtil.quitelyGetFileContentsAsString(referanceFile, "utf-8"));
-  
-  }
-  
-  
-
-}

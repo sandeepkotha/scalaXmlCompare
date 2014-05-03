@@ -18,9 +18,24 @@ object AdjureUtil
 {
 	  def convertAsScalaImmutiableMap(map : java.util.Map[_, _]) : Map[_, _] =
 	  { 
-	       JavaConverters.mapAsScalaMapConverter(map);
-	      Map("one" -> 1, "two" -> 2, "three" -> 3)
+	    
+	    //JavaConverters.mapAsScalaMapConverter(map).asScala;
+	    Map() ++ JavaConverters.mapAsScalaMapConverter(map).asScala
+	   
+	     
+	      /*val keyset =  JavaConverters.asScalaSetConverter(map.keySet()).asScala;
+	      val test  = List(1,2,3)
+	     // keyset.
+	      for(key <- keyset)
+	      {
+	        
+	      }
+	      Map("one" -> 1, "two" -> 2, "three" -> 3) */
 	  }
+	  
+	  
+	  def isMap(that : Any) = that.isInstanceOf[java.util.Map[_,_]];
+	 
 	  
 	  def quitelyGetFileContentsAsString(fileName : String, encoding : String) : String  =
 	  {

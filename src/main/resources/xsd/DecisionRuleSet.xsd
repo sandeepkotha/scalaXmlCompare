@@ -6,7 +6,7 @@ xmlns:commons="http://schema.ruleset.adjure.org/Commons/0/1"
 xmlns:system="http://schema.ruleset.adjure.org/System/0/1" 
 elementFormDefault="qualified">
 	<xs:import namespace="http://schema.ruleset.adjure.org/Commons/0/1" schemaLocation="Commons.0.1.xsd"/>
-	<xs:import namespace="http://schema.ruleset.adjure.org/System/0/1" schemaLocation="System_0_1.xsd"/>
+	<xs:import namespace="http://schema.ruleset.adjure.org/System/0/1" schemaLocation="System.0.1.xsd"/>
 	
 	<xs:complexType name="RuleSet">
 		<xs:sequence>
