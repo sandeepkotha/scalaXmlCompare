@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema targetNamespace="http://schema.ruleset.adjure.org/Commons/0/1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:commons="http://schema.ruleset.adjure.org/Commons/0/1" elementFormDefault="qualified">
 	<xs:simpleType name="FileType">
+		<xs:annotation>
+			<xs:documentation>
+				xml => xml;				
+				json => json
+			</xs:documentation>
+		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="xml"/>
 			<xs:enumeration value="json"/>			
@@ -8,12 +14,27 @@
 	</xs:simpleType>
 	
 	<xs:simpleType name="Action">
+		<xs:annotation>
+			<xs:documentation>
+				COMPARE_WITH_EACH_OTHER => Compare 2 documents with each other;				
+				ANALYZE => Analyse a single document
+			</xs:documentation>
+		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="COMPARE_WITH_EACH_OTHER"/>
 			<xs:enumeration value="ANALYZE"/>			
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="vs">
+		
+		<xs:annotation>
+			<xs:documentation>
+				DATA => Consider Data of specified node as key for comprasion / analyse.
+				Adjure compares/ analyse complete data under specified node and its sub nodes as well ;				
+				NODE => Consider specified Node only as key for comprasion / analyse
+			</xs:documentation>
+		</xs:annotation>
+	
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="DATA"/>
 			<xs:enumeration value="NODE"/>

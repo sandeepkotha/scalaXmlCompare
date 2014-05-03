@@ -16,7 +16,7 @@ elementFormDefault="qualified">
 			
 			<xs:element name="vs" type="commons:vs" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>This specify the xpath for XML or jpath for JSON to validate agnist</xs:documentation>
+					<xs:documentation>What do you want to do ?? compare / analyse; aganist specified xjPath</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

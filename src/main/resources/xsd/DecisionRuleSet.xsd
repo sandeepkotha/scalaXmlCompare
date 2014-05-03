@@ -8,6 +8,14 @@ elementFormDefault="qualified">
 	<xs:import namespace="http://schema.ruleset.adjure.org/Commons/0/1" schemaLocation="Commons.0.1.xsd"/>
 	<xs:import namespace="http://schema.ruleset.adjure.org/System/0/1" schemaLocation="System.0.1.xsd"/>
 	
+	<xs:element name="rules">
+		 <xs:complexType>
+	      <xs:sequence>
+	        <xs:element name="ruleSet" type="rs:RuleSet" minOccurs="1" maxOccurs="1"/>
+	      </xs:sequence>
+	    </xs:complexType>
+	</xs:element>
+	
 	<xs:complexType name="RuleSet">
 		<xs:sequence>
 			<xs:element name="inputType" type="commons:FileType" minOccurs="1" maxOccurs="1">
@@ -57,13 +65,13 @@ elementFormDefault="qualified">
 	
 	<xs:complexType name="Affirm">
 		<xs:sequence>
-			<xs:element name="node" type="system:Adjure" minOccurs="1" maxOccurs="1">
+			<xs:element name="nodelevel" type="system:Adjure" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>This specify the xpath for XML or jpath for JSON to validate agnist</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			
-			<xs:element name="subpath" type="system:Adjure" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="subnodelevel" type="system:Adjure" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>This specify the xpath for XML or jpath for JSON to validate agnist</xs:documentation>
 				</xs:annotation>
