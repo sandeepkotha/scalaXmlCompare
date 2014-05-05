@@ -8,6 +8,13 @@ elementFormDefault="qualified">
 
 	<xs:complexType name="Adjure">
 		<xs:sequence>
+		
+			<xs:element name="nodeType" type="commons:nodeType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>is your node(specified in xjpath) a collection ?? or single ??</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
 			<xs:element name="xjpath" type="xs:string" minOccurs="1" maxOccurs="1">
 					<xs:annotation>
 					<xs:documentation>This specify the xpath for XML or jpath for JSON to validate agnist</xs:documentation>
@@ -19,8 +26,32 @@ elementFormDefault="qualified">
 					<xs:documentation>What do you want to do ?? compare / analyse; aganist specified xjPath</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+						
+			<xs:element name="key" type="system:keyMaker" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>what element data should be considered as a key for analysis or comparison.
+					This will be Ignored if &lt; nodeType &gt; is SINGLE </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
 		</xs:sequence>
 		
 	</xs:complexType>
 	
+	<xs:complexType name="keyMaker">
+		<xs:sequence>
+			<xs:element name="elementInCollection" type="xs:string" minOccurs="1" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>what element data should be considered as a key for analysis or comparison.
+					This will be Ignored if &lt; nodeType &gt; is SINGLE </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="seprator" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Sugar to separate data when concarting multiple elements  </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	
+	</xs:complexType>
 </xs:schema>
