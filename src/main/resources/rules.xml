@@ -7,8 +7,9 @@
    		<rs:ruleName>Compare VIN</rs:ruleName>
    		<rs:affirm>
    			<rs:nodelevel>
-   				<rs:xjpath></rs:xjpath>
-   				<rs:vs>DATA</rs:vs>
+   				<system:nodeType>COLLECTION</system:nodeType>
+   				<system:xjpath></system:xjpath>
+   				<system:vs>DATA</system:vs>   							
    			</rs:nodelevel>
    		</rs:affirm>
    	</rs:rule>
