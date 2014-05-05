@@ -40,4 +40,20 @@
 			<xs:enumeration value="NODE"/>
 		</xs:restriction>
 	</xs:simpleType>
+	
+	<xs:simpleType name="nodeType">
+		
+		<xs:annotation>
+			<xs:documentation>
+				COLLECTION => If the node is Collection.
+				SINGLE => If the Node is Single
+			</xs:documentation>
+		</xs:annotation>
+	
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="COLLECTION"/>
+			<xs:enumeration value="SINGLE"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
 </xs:schema>
