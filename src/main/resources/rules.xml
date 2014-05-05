@@ -9,7 +9,11 @@
    			<rs:nodelevel>
    				<system:nodeType>COLLECTION</system:nodeType>
    				<system:xjpath></system:xjpath>
-   				<system:vs>DATA</system:vs>   							
+   				<system:vs>DATA</system:vs>
+   				<system:key>
+   					<system:elementInCollection></system:elementInCollection>
+   					<system:seprator>_</system:seprator>
+   				</system:key>							
    			</rs:nodelevel>
    		</rs:affirm>
    	</rs:rule>
