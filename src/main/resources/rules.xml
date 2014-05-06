@@ -8,10 +8,10 @@
     	<rs:affirm>
     		<rs:nodelevel>
     			<system:nodeType>COLLECTION</system:nodeType>
-    			<system:xjpath>test</system:xjpath>
+    			<system:xjpath>$.ACORD.InsuranceSvcRq.PersAutoPolicyQuoteInqRq.PersVeh</system:xjpath>
     			<system:vs>DATA</system:vs>
     			<system:key>
-    				<system:elementInxjpath>test</system:elementInxjpath>
+    				<system:elementInxjpath>VehIdentificationNumber</system:elementInxjpath>
     			</system:key>
     		</rs:nodelevel>
     	</rs:affirm>
