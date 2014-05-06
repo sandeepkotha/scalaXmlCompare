@@ -3,19 +3,18 @@
   <rs:ruleSet>
     <rs:inputType>xml</rs:inputType>
     <rs:action>COMPARE_WITH_EACH_OTHER</rs:action>
-   	<rs:rule>
-   		<rs:ruleName>Compare VIN</rs:ruleName>
-   		<rs:affirm>
-   			<rs:nodelevel>
-   				<system:nodeType>COLLECTION</system:nodeType>
-   				<system:xjpath></system:xjpath>
-   				<system:vs>DATA</system:vs>
-   				<system:key>
-   					<system:elementInCollection></system:elementInCollection>
-   					<system:seprator>_</system:seprator>
-   				</system:key>							
-   			</rs:nodelevel>
-   		</rs:affirm>
-   	</rs:rule>
+    <rs:rule>
+    	<rs:ruleName>Compare VIN Number</rs:ruleName>
+    	<rs:affirm>
+    		<rs:nodelevel>
+    			<system:nodeType>COLLECTION</system:nodeType>
+    			<system:xjpath>test</system:xjpath>
+    			<system:vs>DATA</system:vs>
+    			<system:key>
+    				<system:elementInxjpath>test</system:elementInxjpath>
+    			</system:key>
+    		</rs:nodelevel>
+    	</rs:affirm>
+    </rs:rule>
   </rs:ruleSet>
 </rs:rules>
