@@ -6,14 +6,14 @@
     <rs:rule>
     	<rs:ruleName>Compare VIN Number</rs:ruleName>
     	<rs:affirm>
-    		<rs:nodelevel>
+    		<rs:node>
     			<system:nodeType>COLLECTION</system:nodeType>
-    			<system:xjpath>$.ACORD.InsuranceSvcRq.PersAutoPolicyQuoteInqRq.PersVeh</system:xjpath>
+    			<system:xjpath>ACORD.InsuranceSvcRq.PersAutoPolicyQuoteInqRq.PersAutoLineBusiness.PersVeh</system:xjpath>
     			<system:vs>DATA</system:vs>
     			<system:key>
     				<system:elementInxjpath>VehIdentificationNumber</system:elementInxjpath>
     			</system:key>
-    		</rs:nodelevel>
+    		</rs:node>
     	</rs:affirm>
     </rs:rule>
   </rs:ruleSet>

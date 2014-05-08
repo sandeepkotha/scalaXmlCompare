@@ -30,18 +30,18 @@ elementFormDefault="qualified">
 					compare either 2 XML or JSON documents or you want to analyze a single document</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:choice>
+			<!-- <xs:choice> 
 				<xs:element name="basic" type="xs:string" minOccurs="1" maxOccurs="1" >
 					<xs:annotation>
 						<xs:documentation>This specify that you want to do specified action without applying any rules</xs:documentation>
 					</xs:annotation>
-				 </xs:element>
+				 </xs:element> -->
 				<xs:element name="rule" type="rs:Rule" minOccurs="1" maxOccurs="unbounded">
 					<xs:annotation>
 						<xs:documentation>This specify that you want to do specified action by applying rules you defined</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-			</xs:choice>
+			<!-- </xs:choice> -->
 		</xs:sequence>
 	</xs:complexType>
 	
@@ -53,28 +53,47 @@ elementFormDefault="qualified">
 				</xs:annotation> 
 			</xs:element>
 			
-			<xs:element name="affirm" type="rs:Affirm" minOccurs="0" maxOccurs="unbounded">
-			
+			<xs:element name="affirm" type="rs:Node" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Configure what you want to test for this rule</xs:documentation>
+				</xs:annotation>
 			</xs:element>
-			
-			
 			
 		</xs:sequence>
 				
 	</xs:complexType> 
 	
-	<xs:complexType name="Affirm">
+	<xs:complexType name="Node">
 		<xs:sequence>
-			<xs:element name="nodelevel" type="system:Adjure" minOccurs="1" maxOccurs="1">
+			<xs:element name="node" type="system:Adjure" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>This specify the xpath for XML or jpath for JSON to validate agnist</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			
-			<xs:element name="subnodelevel" type="system:Adjure" minOccurs="0" maxOccurs="unbounded">
+			<!-- <xs:element name="subnode" type="rs:SubNode" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>This specify the xpath for XML or jpath for JSON to validate agnist; &lt;subnodelevel&gt;
+					<xs:documentation>Specify the xpath for XML or jpath for JSON to validate agnist subnodes present with in &lt;nodelevel&gt;
 					will be ignored if &lt;:nodelevel&gt; &lt;nodeType&gt; is not COLLECTION </xs:documentation>
+				</xs:annotation>
+			</xs:element> -->
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="SubNode">
+		<xs:sequence>
+				
+			<xs:element name="thisnode" type="system:Adjure" minOccurs="1" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Specify the xpath for XML or jpath for JSON to validate agnist subnodes present with in &lt;nodelevel&gt;
+					<!-- will be ignored if &lt;:nodelevel&gt; &lt;nodeType&gt; is not COLLECTION  --></xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="subnode" type="rs:SubNode" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Specify the xpath for XML or jpath for JSON to validate agnist subnodes present with in &lt;nodelevel&gt;
+					<!-- will be ignored if &lt;:nodelevel&gt; &lt;nodeType&gt; is not COLLECTION  --></xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
