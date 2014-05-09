@@ -19,22 +19,19 @@ object RuleProcessor {
   
   def getXjPaths(rule : Rule) : Map[String, Map[String,String]] = 
   {
-	if(rule.getAffirm().getNode().getSubnode() != null && rule.getAffirm().getNode().getSubnode().size() >0)
+	 val tmpMap : Map[String, String] = Map()
+    if(rule.getAffirm().getNode().getSubnode() != null && rule.getAffirm().getNode().getSubnode().size() >0)
 	{
-		val subnodes : List[org.adjure.ruleset.schema.system._0._1.SubNode] = List[org.adjure.ruleset.schema.system._0._1.SubNode]() ++
-				JavaConverters.asScalaIterableConverter(rule.getAffirm().getNode().getSubnode()).asScala.map((tmp: org.adjure.ruleset.schema.system._0._1.SubNode) =>tmp)
-		for(subnode <- subnodes)
-		{
-		  
-		}
-	
+		
+		  tmpMap ++ processSubNodexfPaths(rule.getAffirm().getNode().getSubnode())
 	  
 	}
-	  Map(rule.getAffirm().getNode().getXjpath() ->Map())
+	  Map(rule.getAffirm().getNode().getXjpath() ->tmpMap)
   }
   
-  def processSubNodexfPaths(subnodeList : java.util.List[org.adjure.ruleset.schema.system._0._1.SubNode] )=
+  def processSubNodexfPaths(subnodeList : java.util.List[org.adjure.ruleset.schema.system._0._1.SubNode] ) : Map[String, String]=
   {
+    val tmpMap : Map[String, String] = Map()
     if(subnodeList != null && subnodeList.size() >0)
     {
 	    val subnodes : List[org.adjure.ruleset.schema.system._0._1.SubNode] = List[org.adjure.ruleset.schema.system._0._1.SubNode]() ++
@@ -42,9 +39,11 @@ object RuleProcessor {
 					
 		for(subnode <- subnodes)
 		{
-			//subnode.getThisnode().ge
+			tmpMap ++ Map(subnode.getThisnode() -> processSubNodexfPaths(subnode.getSubnode()))
 		}
     }
+    
+   tmpMap
 	
 
   }
