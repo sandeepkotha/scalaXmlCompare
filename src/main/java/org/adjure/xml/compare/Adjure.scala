@@ -73,21 +73,44 @@ object Adjure {
   
   private def processJSONObjects(jsonObjects : List[org.json.JSONObject], rule : Rule) : Map[String, String] =
   {
-	val seprator = rule.getAffirm().getNode().getKey().getSeprator();
+	
+    //rule.getAffirm().getNode().getKey();
+    rule.getAffirm().getNode().getSubnode()
+    
+    /*val seprator = AdjureUtil.nullToEmptyString(rule.getAffirm().getNode().getKey().getSeprator());
 	val size: Int = rule.getAffirm().getNode().getKey().getElementInxjpath().size();
 	
 	 
-	//val i : List[String] = List[String]() +: scala.collection.JavaConversions.asScalaBuffer((rule.getAffirm().getNode().getKey().getElementInxjpath())).aso
-	  //List("")
+	val elementsForKey : List[String] = JavaConversions.asScalaIterator(rule.getAffirm().getNode().getKey().getElementInxjpath().iterator()).foldLeft(List[String]()){(list : List[String], value : String) => list :+  value}
+	*/ 
 	 
     for( jsonObject <- jsonObjects)
 	{
-	  //val jsonObject : org.json.JSONObject = jsonObjects(i)
+	
 	  
-	  //val key : String = keyMaker(i, seprator, jsonObject);
-	    //JavaConversions.asScalaIterator(rule.getAffirm().getNode().getKey().getElementInxjpath().iterator()).foldLeft(""){(key : String, element : String) => jsonObject.get(element)+seprator}
-    
+      val rootKey : String = keyMaker(JavaConversions.asScalaIterator(rule.getAffirm().getNode().getKey().getElementInxjpath().iterator()).
+	      foldLeft(List[String]()){(list : List[String], value : String) => list :+  value}, 
+	      AdjureUtil.nullToEmptyString(rule.getAffirm().getNode().getKey().getSeprator()), jsonObject);
+      
+      val toCompareMap : Map[String, Map[Set[String], org.json.JSONObject]] = Map()
+      
+	  
+	  jsonObjectToMap(rootKey, jsonObject)
 	}
+    
+    Map("" -> "")
+  }
+  
+  private def constructTocompareMap() : Map[String, Map[Set[String], org.json.JSONObject]] = 
+  {
+    
+    
+    Map()
+  }
+  
+  private def jsonObjectToMap(key : String, jsonObject : org.json.JSONObject) : Map[String, String] =
+  {
+		    
     
     Map("" -> "")
   }
@@ -95,7 +118,7 @@ object Adjure {
   /**
    * To make a Key for a JSONObject
    */
-  private def keyMaker(elements : List[String], seprator: String, jsonObject : org.json.JSONObject) : String = elements.foldLeft(""){(key : String, element : String) => jsonObject.getString(key)+seprator}
+  private def keyMaker(elementsForKey : List[String], seprator: String, jsonObject : org.json.JSONObject) : String = elementsForKey.foldLeft(""){(key : String, element : String) => jsonObject.getString(key)+seprator}
   
   private def compare(inputJSONObjects : List[org.json.JSONObject], referanceJSONObjects : List[org.json.JSONObject]) : Unit=
   {

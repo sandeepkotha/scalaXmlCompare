@@ -66,7 +66,7 @@ elementFormDefault="qualified">
 	<xs:complexType name="SubNode">
 		<xs:sequence>
 				
-			<xs:element name="thisnode" type="system:Adjure" minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="thisnode" type="system:Adjure" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Specify the xpath for XML or jpath for JSON to validate agnist subnodes present with in &lt;nodelevel&gt;
 					<!-- will be ignored if &lt;:nodelevel&gt; &lt;nodeType&gt; is not COLLECTION  --></xs:documentation>

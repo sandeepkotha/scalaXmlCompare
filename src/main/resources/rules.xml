@@ -13,6 +13,17 @@
     			<system:key>
     				<system:elementInxjpath>VehIdentificationNumber</system:elementInxjpath>
     			</system:key>
+    			<system:subnode>
+    				<system:thisnode>
+    					<system:nodeType>COLLECTION</system:nodeType>    					
+    					<system:xjpath></system:xjpath>
+    					<system:vs>DATA</system:vs>
+    					<system:key>
+    						<system:elementInxjpath>test</system:elementInxjpath>
+    						<system:seprator>_</system:seprator>
+    					</system:key>
+    				</system:thisnode>
+    			</system:subnode>
     		</rs:node>
     	</rs:affirm>
     </rs:rule>

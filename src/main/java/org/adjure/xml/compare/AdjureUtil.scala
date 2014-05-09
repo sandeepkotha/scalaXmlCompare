@@ -8,6 +8,7 @@ import scala.collection.script.Update
 import scala.collection.JavaConverters
 import scala.io.Source
 import scala.reflect.io.File
+import org.adjure.ruleset.schema.decisionmaker._0._1.Rule
 
 
 /**
@@ -16,22 +17,9 @@ import scala.reflect.io.File
  */
 object AdjureUtil
 {
-	  def convertAsScalaImmutiableMap(map : java.util.Map[_, _]) : Map[_, _] =
-	  { 
-	    
-	    //JavaConverters.mapAsScalaMapConverter(map).asScala;
-	    Map() ++ JavaConverters.mapAsScalaMapConverter(map).asScala
-	   
-	     
-	      /*val keyset =  JavaConverters.asScalaSetConverter(map.keySet()).asScala;
-	      val test  = List(1,2,3)
-	     // keyset.
-	      for(key <- keyset)
-	      {
-	        
-	      }
-	      Map("one" -> 1, "two" -> 2, "three" -> 3) */
-	  }
+	  def convertAsScalaImmutiableMap(map : java.util.Map[_, _]) : Map[_, _] =  Map() ++ JavaConverters.mapAsScalaMapConverter(map).asScala
+	 
+	  def convertAsScalaImmutiableList(list : java.util.List[Rule]) : List[Rule] = List() ++ JavaConverters.asScalaIterableConverter(list).asScala
 	  
 	  
 	  def isMap(that : Any) = that.isInstanceOf[java.util.Map[_,_]];
@@ -53,5 +41,15 @@ object AdjureUtil
 	        
 	       // FileUtils.forceDelete(file);
 			//FileUtils.writeByteArrayToFile(file, content.getBytes());        
+	  }
+	  
+	  def nullToEmptyString(value : String) : String = 
+	  {
+			  value match {
+			    
+			    case null => "";
+			    case _ => value;
+			    
+			  }
 	  }
 }
